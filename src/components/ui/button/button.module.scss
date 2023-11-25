@@ -1,0 +1,19 @@
+
+.button {
+  cursor: pointer;
+
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--color-light);
+
+  background: linear-gradient(147.71deg, var(--color-blue-darkest) 0%, var(--color-blue-lighter) 100%);
+  border: none;
+  border-radius: 10px/50px;
+
+  &:hover {
+    background: linear-gradient(147.71deg, var(--color-blue-lightest) 0%, var(--color-blue-darkest) 100%);
+  }
+}
+
+
+
