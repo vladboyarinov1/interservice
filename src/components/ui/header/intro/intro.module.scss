@@ -1,0 +1,41 @@
+
+.intro {
+  height: 100%;
+  padding: 115px 0 0 58px;
+
+}
+
+.subtitle {
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 1.8px;
+}
+
+.mainText {
+  box-sizing: border-box;
+  margin: 30px -3px 23px;
+  padding: 17px 0;
+
+  font-family: var(--font-family-primary);
+  font-size: 75px;
+  font-weight: 800;
+  text-transform: uppercase;
+
+  background-image: url('@/img/mercedes-truck.jpg');
+  background-position: 50% 80%;
+
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  background-size: cover;
+  /* stylelint-enable property-no-vendor-prefix */
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 510px;
+  margin-bottom: 40px;
+
+  font-size: var(--font-size-xxxlarge);
+  font-weight: var(--font-weight-light);
+  line-height: 108.023%;
+}

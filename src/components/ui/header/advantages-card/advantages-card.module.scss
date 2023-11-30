@@ -1,0 +1,32 @@
+.advantages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: 100px;
+  padding-bottom: 20px;
+}
+
+.advantagesCard {
+  display: flex;
+  align-items: center;
+
+  max-width: 247px;
+  margin-right: 30px;
+  padding: 31px 16px;
+
+  background-color: var(--color-light);
+  border-radius: 17.5px;
+  box-shadow: 3px 3.5px 9px 0 rgb(116 116 116 / 25%);
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.advantagesText {
+  margin-left: 14px;
+  font-size: var( --font-size-xsmall);
+  font-weight: var(--font-weight-medium);
+}
+

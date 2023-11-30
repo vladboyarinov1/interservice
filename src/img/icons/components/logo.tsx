@@ -8,11 +8,10 @@ export const Logo = (allProps: IconProps) => {
       icon={
         <svg
           fill={'none'}
-          height={'100%'}
+          height={'52'}
           viewBox={'0 0 39 52'}
-          width={'100%'}
+          width={'39'}
           xmlns={'http://www.w3.org/2000/svg'}
-          {...props}
         >
           <path
             d={

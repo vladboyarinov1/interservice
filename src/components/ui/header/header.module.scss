@@ -1,0 +1,71 @@
+.backgroundPhoto {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 58px 18px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+
+.logoText {
+  margin-left: 11px;
+
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semi-bold);
+  line-height: 1;
+  color: var(--color-blue-extra);
+}
+
+.menuItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menuItem {
+  cursor: pointer;
+
+  margin-right: 72px;
+
+  font-size: var(--font-size-regular);
+  list-style-type: none;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--color-blue-extra);
+  }
+
+  &:last-child {
+    margin-left: 0;
+  }
+}
+
+.phoneButtonSection {
+  display: flex;
+  align-items: center;
+}
+
+.phone {
+  align-items: center;
+
+  margin-right: 58px;
+
+  font-size: var(--font-size-regular);
+  color: var(--color-dark);
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--color-blue-extra);
+  }
+}

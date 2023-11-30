@@ -1,0 +1,74 @@
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 100%;
+  height: 500px;
+
+  font-size: var(--font-size-enormous);
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+  color: var(--color-light);
+  text-align: center;
+  letter-spacing: 1.8px;
+
+  background-image: url("@/img/truck.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//.card {
+//  width: 395px;
+//  height: auto;
+//  padding: 20px;
+//
+//  border: 4px solid;
+//  border-radius: 50%;
+//  border-image: linear-gradient(to right, #3EABFA, #5F91E7, #9DBBD1) 1;
+//}
+.card {
+  position: relative;
+
+  width: 395px;
+  height: auto;
+  margin: 30px;
+  padding: 70px 40px 40px;
+
+  text-align: center;
+
+  background: #fff;
+  border-radius: 25px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    inset: calc(0px - 3px);
+
+
+
+    background: linear-gradient(to right, #3EABFA, #5F91E7, #9DBBD1);
+    border-radius: 28px;
+  }
+
+  & > h3 {
+    margin-bottom: 15px;
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 12px;
+
+  background-color: #FFF;
+  border-radius: 50%;
+  box-shadow: 0 0 7px -2px #000;
+}
+
+
