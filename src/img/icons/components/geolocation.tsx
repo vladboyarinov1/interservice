@@ -1,16 +1,16 @@
 import { IconProps, IconWrapper } from '@/img/icons/icon-wrapper'
 
 export const Geolocation = (allProps: IconProps) => {
-  const { svgProps: props, ...restProps } = allProps
+  const { height, svgProps: props, width, ...restProps } = allProps
 
   return (
     <IconWrapper
       icon={
         <svg
           fill={'none'}
-          height={'100%'}
+          height={height}
           viewBox={'0 0 71 87'}
-          width={'100%'}
+          width={width}
           xmlns={'http://www.w3.org/2000/svg'}
           {...props}
         >

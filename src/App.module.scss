@@ -18,57 +18,16 @@
   background-size: cover;
 }
 
-//.card {
-//  width: 395px;
-//  height: auto;
-//  padding: 20px;
-//
-//  border: 4px solid;
-//  border-radius: 50%;
-//  border-image: linear-gradient(to right, #3EABFA, #5F91E7, #9DBBD1) 1;
-//}
-.card {
+.imageMers {
   position: relative;
 
-  width: 395px;
-  height: auto;
-  margin: 30px;
-  padding: 70px 40px 40px;
+  overflow: hidden;
+  display: inline-block;
 
-  text-align: center;
+  min-width: 100%;
+  height: 532px;
 
-  background: #fff;
-  border-radius: 25px;
-
-  &::before {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-    inset: calc(0px - 3px);
-
-
-
-    background: linear-gradient(to right, #3EABFA, #5F91E7, #9DBBD1);
-    border-radius: 28px;
-  }
-
-  & > h3 {
-    margin-bottom: 15px;
-  }
+  background-image: url("@/img/mercedes-truck.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.circle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  padding: 12px;
-
-  background-color: #FFF;
-  border-radius: 50%;
-  box-shadow: 0 0 7px -2px #000;
-}
-
-

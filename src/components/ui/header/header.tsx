@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Logo, Mobile } from '@/img/icons'
+import { Logo } from '@/img/icons'
 import bg from '@/img/mainBackground.jpg'
 
 import s from './header.module.scss'

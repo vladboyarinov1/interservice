@@ -1,4 +1,4 @@
-import { Cards } from '@/img/icons'
+import { Award, Cards, Check } from '@/img/icons'
 
 import s from './advantages-card.module.scss'
 
@@ -7,7 +7,7 @@ export const AdvantagesCard = () => {
     <div className={s.advantages}>
       <div className={s.advantagesCard}>
         <div className={s.advantagesImg}>
-          <Cards size={53} />
+          <Cards height={53} />
         </div>
         <div>
           <p className={s.advantagesText}>Индивидуальный расчет цен</p>
@@ -15,7 +15,7 @@ export const AdvantagesCard = () => {
       </div>
       <div className={s.advantagesCard}>
         <div className={s.advantagesImg}>
-          <Cards size={53} />
+          <Check height={46} />
         </div>
         <div>
           <p className={s.advantagesText}>Индивидуальный расчет цен</p>
@@ -23,7 +23,7 @@ export const AdvantagesCard = () => {
       </div>
       <div className={s.advantagesCard}>
         <div className={s.advantagesImg}>
-          <Cards size={53} />
+          <Award height={56} />
         </div>
         <div>
           <p className={s.advantagesText}>Индивидуальный расчет цен</p>
