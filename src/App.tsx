@@ -1,3 +1,4 @@
+import { SendForm } from '@/components/ui/SendForm/SendForm'
 import { Advantages } from '@/components/ui/advantages'
 import { Equipment } from '@/components/ui/equipment'
 import { Header } from '@/components/ui/header'
@@ -18,6 +19,7 @@ function App() {
       <Advantages />
       <Equipment />
       <div className={s.imageMers}></div>
+      <SendForm />
     </>
   )
 }
