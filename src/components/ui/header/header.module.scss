@@ -1,18 +1,64 @@
 .backgroundPhoto {
+  background-color: #464646;
   background-repeat: no-repeat;
-  background-size: cover;
+
+  //background-attachment: fixed;
+  background-position: center center;
+  background-size: 100% cover;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 14px 58px 18px;
 }
+
+.showBurgerIcon {
+  //display: block;
+  display: flex;
+  align-items: center;
+}
+
+.navbarBurger {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 9px;
+}
+
+.navbarBurger span {
+  display: block;
+  width: 27px;
+  height: 6px;
+  background: linear-gradient(147.71deg, var(--color-blue-lightest) 0%, var(--color-blue-darkest) 100%);;
+}
+
+.navbarBurger span:first-child {
+  transform: translateY(-6px);
+}
+
+.navbarBurger span:last-child {
+  transform: translateY(6px);
+}
+
+.hideBurgerIcon {
+  display: none;
+}
+
+.mobileNavigation {
+  display: flex;
+  align-items: center;
+  border: 1px solid darkcyan;
+}
+
 
 .logo {
   display: flex;
   align-items: center;
+  margin-right: 100px;
 }
 
 
@@ -28,44 +74,103 @@
 .menuItems {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
 }
 
 .menuItem {
   cursor: pointer;
 
-  margin-right: 72px;
+  position: relative;
+
+  display: inline-block;
+
+  padding-bottom: 4px;
 
   font-size: var(--font-size-regular);
+  text-decoration: none;
   list-style-type: none;
 
   transition: all 0.3s ease;
 
-  &:hover {
-    color: var(--color-blue-extra);
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    width: 0;
+    height: 3px;
+
+    background: none repeat scroll 0 0 transparent;
+    background: linear-gradient(147.71deg, var(--color-blue-lightest) 0%, var(--color-blue-darkest) 100%);
+    border-radius: 6px;
+
+    transition: width .5s ease 0s, right .5s ease 0s;
   }
 
-  &:last-child {
-    margin-left: 0;
+  &:last-child::after {
+    content: "";
+    display: none;
+  }
+
+  &:hover::after {
+    left: 0;
+    width: 80%;
   }
 }
 
 .phoneButtonSection {
   display: flex;
   align-items: center;
+  border: 1px solid darkblue;
 }
 
-.phone {
-  align-items: center;
-
-  margin-right: 58px;
-
+.phone, .phoneMobile {
   font-size: var(--font-size-regular);
   color: var(--color-dark);
   text-decoration: none;
-
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    color: var(--color-blue-extra);
+.phoneMobile {
+  margin-right: 20px;
+}
+
+@media screen and (width <= 1200px) {
+  .logo {
+    margin-right: 50px;
   }
 }
+
+@media screen and (width <= 1024px) {
+  .header {
+    padding: 14px 10px 10px;
+  }
+
+  .logo {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (width <= 910px) {
+  .header {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (width <= 680px) {
+  .phoneMobile {
+    font-size: 16px;
+  }
+
+  .backgroundPhoto {
+    background-position: 73% 38%;
+  }
+}
+

@@ -34,7 +34,7 @@ function trimReplace(value) {
 }
 
 app.post('/send-email', upload.any(), validateData, async (req, res) => {
-    console.log(req.files);
+    console.log(req.files); // Проверьте, что файлы правильно загружены
     console.log(req.body);
     try {
         const errors = validationResult(req);
@@ -48,22 +48,30 @@ app.post('/send-email', upload.any(), validateData, async (req, res) => {
         }
 
         let attachments = [];
-        files.forEach((file) => {
-            attachments.push({
-                filename: file.originalname,
-                content: file.buffer.toString('base64'), // Кодирование файла в base64
-                encoding: 'base64',
-            });
-        });
+        for (const file of files) {
+            const encodedFilename = encodeURIComponent(file.originalname);
+            const existingFile = attachments.find((attachment) => attachment.filename === encodedFilename);
+            if (!existingFile) {
+                attachments.push({
+                    filename: encodedFilename,
+                    content: file.buffer.toString('base64'),
+                    encoding: 'base64',
+                });
+            }
+        }
 
+        const {email, message, firstName, lastName, phone} = req.body;
         await transporter.sendMail({
             from: process.env.EMAIL,
             to: process.env.EMAIL,
-            subject: `Заявка от`,
-            html: `<p><strong>Email:</strong>${req.body.email}</p>
-             <p><strong>Сообщение:</strong> ${req.body.message}</p>
-             ${attachments.map((attachment) => `<img src="data:image/${attachment.filename.split('.').pop()};base64,${attachment.content}" alt="${attachment.filename}" />`).join('')}
-      `,
+            subject: `Заявка от ${firstName} ${lastName}`,
+            html: `<p><strong>Имя: </strong>${firstName}</p>
+                   <p><strong>Фамилия: </strong>${lastName}</p>
+                   <p><strong>Email: </strong>${email}</p>
+                   <p><strong>Контактный телефон: </strong>${phone}</p>
+                   <p><strong>Сообщение: </strong> ${message}</p>
+                   ${attachments.map((attachment) => `<img src="data:image/${attachment.filename.split('.').pop()};base64,${attachment.content}" alt="${attachment.filename}" />`).join('')}
+              `,
             attachments: attachments,
         });
 
@@ -73,6 +81,7 @@ app.post('/send-email', upload.any(), validateData, async (req, res) => {
         res.status(500).send(error.message);
     }
 });
+зтpnpmpnpm run dev
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',

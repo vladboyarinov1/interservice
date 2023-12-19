@@ -1,16 +1,16 @@
 import { IconProps, IconWrapper } from '@/img/icons/icon-wrapper'
 
 export const Logo = (allProps: IconProps) => {
-  const { svgProps: props, ...restProps } = allProps
+  const { height, svgProps: props, width, ...restProps } = allProps
 
   return (
     <IconWrapper
       icon={
         <svg
           fill={'none'}
-          height={'52'}
+          height={height}
           viewBox={'0 0 39 52'}
-          width={'39'}
+          width={width}
           xmlns={'http://www.w3.org/2000/svg'}
         >
           <path

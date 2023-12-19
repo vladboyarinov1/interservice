@@ -1,10 +1,18 @@
+import { useState } from 'react'
+
+import { useWindowSize } from '@/hooks/use-window-size'
 import { Stars } from '@/img/icons'
-import Mobile from '@/img/mobile.png'
+import MB from '@/img/mobilePhoneInt.svg'
+import Mobile from '@/img/phoneImg.svg'
+import PhoneMobile from '@/img/phoneMobile.png'
 
 import s from './main.module.scss'
 import container from '@/styles/container.module.scss'
 
 export const Main = () => {
+  const { width } = useWindowSize()
+  const mobileSize = width && width <= 500
+
   return (
     <main className={`${container.container} ${s.main}`}>
       <div className={s.mainContent}>
@@ -16,17 +24,17 @@ export const Main = () => {
           <p>мы открыты для всех</p>
         </div>
         <div className={s.description}>
-          <div>
-            <img alt={''} src={Mobile} />
+          <div className={s.mobileImg}>
+            <img alt={''} src={mobileSize ? MB : Mobile} />
           </div>
           <div className={s.textContainer}>
             <p>
               <span>ООО “Интерсервис”</span> современное предприятие по поставке оборудования и
-              материалов для различных отраслей промышленности.{' '}
+              материалов для различных отраслей промышленности.
             </p>
             <p>
               Мы осуществляем поставку оригинального оборудования и запасных частей от ведущих
-              производителей и обеспечиваем нашим заказчикам{' '}
+              производителей и обеспечиваем нашим заказчикам {''}
               <span>
                 улучшение процессов производства, снижение затрат, и повышение качества готовой
                 продукции.

@@ -2,6 +2,7 @@
 .button {
   cursor: pointer;
 
+
   font-size: var(--font-size-regular);
   font-weight: var(--font-weight-semi-bold);
   color: var(--color-light);
@@ -12,7 +13,9 @@
 
   &:hover {
     background: linear-gradient(147.71deg, var(--color-blue-lightest) 0%, var(--color-blue-darkest) 100%);
+
   }
+
 }
 
 
