@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/ui/header/sidebar/Sidebar'
+import useScrollPosition from '@/hooks/use-scroll-position'
 import { useWindowSize } from '@/hooks/use-window-size'
 import { Logo } from '@/img/icons'
 import bg from '@/img/mainBackground.jpg'
@@ -10,9 +11,16 @@ import s from './header.module.scss'
 import container from '@/styles/container.module.scss'
 
 import { Intro } from './intro'
+const linked = [
+  { id: 1, title: 'О компании', to: 'company' },
+  { id: 2, title: 'Оборудование', to: 'equipment' },
+  { id: 3, title: 'Контакты', to: 'contacts' },
+]
 
 export const Header = () => {
   const { width } = useWindowSize()
+  const scrollPosition = useScrollPosition()
+  const fixedHeader = scrollPosition >= 60
   const [open, setOpen] = useState(false)
   const widthForBurger = width && width <= 910
   const mobileSize = width && width <= 680
@@ -27,7 +35,7 @@ export const Header = () => {
   return (
     <div style={{ height: '100%' }}>
       <div className={s.backgroundPhoto} style={{ backgroundImage: `url(${bg})` }}>
-        <header className={`${s.header} ${container.container}`}>
+        <header className={`${fixedHeader ? s.fixed : s.header} ${container.container}`}>
           <div className={s.logo}>
             <div>
               <a href={''}>
