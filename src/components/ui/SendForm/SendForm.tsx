@@ -1,3 +1,5 @@
+import { Element } from 'react-scroll'
+
 import { Button } from '@/components/ui/button'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -54,7 +56,7 @@ export const SendForm = () => {
   }
 
   return (
-    <div className={s.wrapper}>
+    <Element className={s.wrapper} id={'form'} name={'form'}>
       <div className={`${container.container} ${s.formContainer}`}>
         <div className={s.title}>
           <h2>Остались вопросы?</h2>
@@ -130,6 +132,6 @@ export const SendForm = () => {
           </div>
         </form>
       </div>
-    </div>
+    </Element>
   )
 }

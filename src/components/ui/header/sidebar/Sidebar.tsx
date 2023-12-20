@@ -50,7 +50,7 @@ export const Sidebar = ({ handleClose, open }: PropsType) => {
           <Link
             activeClass={s.navigateActive}
             duration={500}
-            offset={-70}
+            offset={-300}
             onClick={handleClose}
             smooth
             spy

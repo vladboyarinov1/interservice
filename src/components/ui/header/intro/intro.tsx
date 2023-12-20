@@ -1,3 +1,5 @@
+import { Link } from 'react-scroll'
+
 import { Button } from '@/components/ui/button'
 import { useWindowSize } from '@/hooks/use-window-size'
 
@@ -19,9 +21,11 @@ export const Intro = () => {
           ваш надежный партнер в сфере поставок промышленного оборудования и материалов
         </p>
       </div>
-      <Button px={mobileSize ? 28 : 60} py={mobileSize ? 18 : 25}>
-        Узнать подробнее
-      </Button>
+      <Link duration={500} offset={-150} smooth spy to={'company'}>
+        <Button as={'a'} px={mobileSize ? 28 : 60} py={mobileSize ? 18 : 25}>
+          Узнать подробнее
+        </Button>
+      </Link>
       <AdvantagesCard />
     </div>
   )

@@ -29,12 +29,7 @@ export const Header = () => {
   }, [open]) // отключает прокрутку при открытом меню
 
   return (
-    <Element
-      className={s.backgroundPhoto}
-      id={'company'}
-      name={'company'}
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <div className={s.backgroundPhoto} style={{ backgroundImage: `url(${bg})` }}>
       <header className={`${fixedHeader ? s.fixed : s.header} ${container.container}`}>
         <div className={s.logo}>
           <div>
@@ -93,7 +88,7 @@ export const Header = () => {
               <Link
                 activeClass={s.navigateActive}
                 duration={500}
-                offset={-70}
+                offset={-350}
                 smooth
                 spy
                 to={'contacts'}
@@ -107,15 +102,17 @@ export const Header = () => {
               </a>
             </li>
             <li className={s.menuItem}>
-              <Button as={'a'} fs={12} px={15} py={10}>
-                отправить запрос
-              </Button>
+              <Link duration={500} offset={-100} smooth spy to={'form'}>
+                <Button as={'a'} fs={12} px={15} py={10}>
+                  отправить запрос
+                </Button>
+              </Link>
             </li>
           </nav>
         )}
         <Sidebar handleClose={handleClose} isDark={false} open={open} width />
       </header>
       <Intro />
-    </Element>
+    </div>
   )
 }
