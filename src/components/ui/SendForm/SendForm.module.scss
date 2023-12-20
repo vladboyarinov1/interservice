@@ -35,13 +35,16 @@ form {
     font-size: var(--font-size-huge);
     font-weight: var(--font-weight-semi-bold);
     line-height: 140%;
+    text-align: center;
     text-transform: uppercase;
   }
 
   & > p {
     margin: 14px 0 25px;
+
     font-size: var(--font-size-xlarge);
     line-height: 140%;
+    text-align: center;
     letter-spacing: 2.07px;
   }
 
@@ -149,6 +152,24 @@ input {
 @media screen and (width <= 991px) {
 }
 
-@media screen and (width <= 768px) {
+@media screen and (width <= 500px) {
+  .wrapper {
+    padding: 0 10px;
+  }
 
+  .formContainer {
+    padding: 54px 20px;
+  }
+
+  .title {
+    & > h2 {
+      font-size: var(  --font-size-xxlarge);
+    }
+
+    & > p {
+      margin: 14px 0 25px;
+      font-size: var( --font-size-regular);
+    }
+
+  }
 }

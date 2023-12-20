@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/ui/header/sidebar/Sidebar'
 import { useWindowSize } from '@/hooks/use-window-size'
-import { BurgerMenu, Logo } from '@/img/icons'
+import { Logo } from '@/img/icons'
 import bg from '@/img/mainBackground.jpg'
 
 import s from './header.module.scss'

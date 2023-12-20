@@ -1,10 +1,7 @@
-import { useState } from 'react'
-
 import { useWindowSize } from '@/hooks/use-window-size'
 import { Stars } from '@/img/icons'
 import MB from '@/img/mobilePhoneInt.svg'
 import Mobile from '@/img/phoneImg.svg'
-import PhoneMobile from '@/img/phoneMobile.png'
 
 import s from './main.module.scss'
 import container from '@/styles/container.module.scss'

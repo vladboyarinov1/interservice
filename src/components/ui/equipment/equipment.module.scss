@@ -1,3 +1,7 @@
+.wrapper {
+  padding: 0 10px;
+}
+
 .equipmentContainer {
   padding: 44px 63px 89px;
   background-image: url("@/img/background-pattern.jpg");
@@ -13,14 +17,17 @@
 
   & > h2 {
     margin-bottom: 20px;
+
     font-size: var(--font-size-huge);
     font-weight: var(--font-weight-semi-bold);
+    text-align: center;
     text-transform: uppercase;
   }
 
   & > p {
     font-size: var(--font-size-regular);
     font-variant: all-small-caps;
+    text-align: center;
     letter-spacing: 1.62px;
   }
 }
@@ -32,6 +39,7 @@
   gap: 57px 40px;
   place-items: center center;
   align-items: stretch;
+
 }
 
 .equipmentsCard {
@@ -78,5 +86,39 @@
   & > p {
     font-size: var(--font-size-small);
     letter-spacing: 0.42px;
+  }
+}
+
+@media screen and (width <= 500px) {
+  .equipmentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .equipments {
+    gap: 20px 40px;
+  }
+
+  .equipmentTitle {
+    margin-bottom: 58px;
+
+    & > h2 {
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .equipmentsCard {
+    align-items: center;
+
+    max-width: 320px;
+    height: auto;
+    padding: 10px;
+
+    background-color: var(--color-light);
+    border-radius: 24px;
+    box-shadow: 5px 4px 21px 0 rgb(0 0 0 / 25%);
   }
 }

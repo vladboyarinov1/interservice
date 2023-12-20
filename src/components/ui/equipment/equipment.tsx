@@ -46,23 +46,26 @@ export const Equipment = () => {
   ]
 
   return (
-    <div className={`${container.container} ${s.equipmentContainer}`}>
-      <div className={s.equipmentTitle}>
-        <h2>оборудование</h2>
-        <p>Категории оборудования, поставку которых мы готовы обеспечить </p>
-      </div>
-      <div className={s.equipments}>
-        {equipmentsData.map(i => (
-          <div className={s.equipmentsCard} key={i.id}>
-            <div className={s.equipmentsCardImg}>
-              <img alt={''} src={i.image} />
+    <div className={s.wrapper}>
+      {' '}
+      <div className={`${container.container} ${s.equipmentContainer}`}>
+        <div className={s.equipmentTitle}>
+          <h2>оборудование</h2>
+          <p>Категории оборудования, поставку которых мы готовы обеспечить </p>
+        </div>
+        <div className={s.equipments}>
+          {equipmentsData.map(i => (
+            <div className={s.equipmentsCard} key={i.id}>
+              <div className={s.equipmentsCardImg}>
+                <img alt={''} src={i.image} />
+              </div>
+              <div className={s.equipmentsCardInfo}>
+                <h3>{i.title}</h3>
+                <p>{i.subtitle}</p>
+              </div>
             </div>
-            <div className={s.equipmentsCardInfo}>
-              <h3>{i.title}</h3>
-              <p>{i.subtitle}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )

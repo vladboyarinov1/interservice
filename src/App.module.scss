@@ -4,7 +4,8 @@
   justify-content: center;
 
   min-width: 100%;
-  height: 500px;
+  height: 450px;
+
 
   font-size: var(--font-size-enormous);
   font-weight: var(--font-weight-bold);
@@ -15,7 +16,21 @@
 
   background-image: url("@/img/truck.png");
   background-repeat: no-repeat;
+  background-position: right;
   background-size: cover;
+
+  @media screen and (width <= 980px){
+    font-size: var(--font-size-huge);
+  }
+
+  @media screen and (width <= 720px){
+    font-size: var( --font-size-xxxlarge);
+  }
+
+  @media screen and (width <= 500px){
+    height: 200px;
+    font-size: var(--font-size-large);
+  }
 }
 
 .imageMers {
@@ -25,59 +40,15 @@
   display: inline-block;
 
   min-width: 100%;
-  height: 532px;
+  height: 450px;
   margin: 100px 0;
 
   background-image: url("@/img/mercedes-truck.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  max-width: 586px;
-  padding: 100px 0;
-}
-
-.contacts {
-  font-size: var(--font-size-huge);
-  font-weight: var(--font-weight-semi-bold);
-  text-transform: uppercase;
-}
-
-.subtitle {
-  margin: 35px 0 70px;
-
-  font-size: var(--font-size-xxsmall);
-  font-weight: var(--font-weight-light);
-  line-height: 140%;
-  text-align: center;
-  letter-spacing: 0.57px;
-}
-
-.companyName,
-.tel,
-.email {
-  font-size: var(--font-size-xxlarge);
-  font-weight: var(--font-weight-semi-bold);
-  letter-spacing: 0.75px;
-}
-
-.tel {
-  margin: 35px 0;
-
-  & > a {
-    color: var(--color-dark);
-    text-decoration-line: none;
-  }
-}
-
-.email {
-  & > a {
-    color: var(--color-dark);
-    text-transform: uppercase;
+  @media screen and (width <= 500px){
+    height: 200px;
+    margin: 35px 0;
   }
 }

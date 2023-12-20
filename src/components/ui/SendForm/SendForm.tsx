@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { Button } from '@/components/ui/button'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -10,8 +8,6 @@ import container from '@/styles/container.module.scss'
 const validationSchema = Yup.object({})
 
 export const SendForm = () => {
-  const [loading, setLoading] = useState<boolean>(false)
-
   const formik = useFormik({
     initialValues: {
       email: '', // Добавлено поле для email
@@ -58,80 +54,82 @@ export const SendForm = () => {
   }
 
   return (
-    <div className={`${container.container} ${s.formContainer}`}>
-      <div className={s.title}>
-        <h2>Остались вопросы?</h2>
-        <p>
-          Заполните форму, и наши специалисты свяжутся с Вами <span>в течение рабочего дня</span>
-        </p>
-      </div>
-      <form encType={'multipart/form-data'} onSubmit={formik.handleSubmit}>
-        <div className={s.nameFormBlock}>
-          <div className={s.firstName}>
-            <input
-              className={'form-control'}
-              id={'firstName'}
-              placeholder={'Имя*'}
-              type={'text'}
-              {...formik.getFieldProps('firstName')}
-            />
-          </div>
-          <div>
-            <input
-              className={'form-control'}
-              id={'lastName'}
-              placeholder={'Фамилия'}
-              type={'text'}
-              {...formik.getFieldProps('lastName')}
-            />
-          </div>
-          <div className={s.emailFormBlock}>
-            <input
-              className={'form-control'}
-              id={'email'}
-              placeholder={'Email*'}
-              type={'email'}
-              {...formik.getFieldProps('email')}
-            />
-          </div>
-          <div>
-            <input
-              className={'form-control'}
-              id={'phone'}
-              placeholder={'Номер телефона*'}
-              type={'number'}
-              {...formik.getFieldProps('phone')}
-            />
-          </div>
-          <div className={s.messageInput}>
-            <input
-              className={'form-control'}
-              id={'message'}
-              placeholder={'Доп. информация (Linkedln, Skype и т.д.)'}
-              {...formik.getFieldProps('message')}
-            />
-          </div>
-          <div className={s.sendFileField}>
-            <label className={s.customFileUpload} htmlFor={'file'}>
-              <p>
-                <span>Прикрепить файл</span> (файл в формате .pdf, .docx, .doc, .txt размером до
-                1Mb)
-              </p>
+    <div className={s.wrapper}>
+      <div className={`${container.container} ${s.formContainer}`}>
+        <div className={s.title}>
+          <h2>Остались вопросы?</h2>
+          <p>
+            Заполните форму, и наши специалисты свяжутся с Вами <span>в течение рабочего дня</span>
+          </p>
+        </div>
+        <form encType={'multipart/form-data'} onSubmit={formik.handleSubmit}>
+          <div className={s.nameFormBlock}>
+            <div className={s.firstName}>
               <input
-                accept={'.pdf,.docx,.doc,.txt'}
-                id={'file'}
-                onChange={e => formik.setFieldValue('file', e.currentTarget.files?.[0])}
-                type={'file'}
+                className={'form-control'}
+                id={'firstName'}
+                placeholder={'Имя*'}
+                type={'text'}
+                {...formik.getFieldProps('firstName')}
               />
-            </label>
+            </div>
+            <div>
+              <input
+                className={'form-control'}
+                id={'lastName'}
+                placeholder={'Фамилия'}
+                type={'text'}
+                {...formik.getFieldProps('lastName')}
+              />
+            </div>
+            <div className={s.emailFormBlock}>
+              <input
+                className={'form-control'}
+                id={'email'}
+                placeholder={'Email*'}
+                type={'email'}
+                {...formik.getFieldProps('email')}
+              />
+            </div>
+            <div>
+              <input
+                className={'form-control'}
+                id={'phone'}
+                placeholder={'Номер телефона*'}
+                type={'number'}
+                {...formik.getFieldProps('phone')}
+              />
+            </div>
+            <div className={s.messageInput}>
+              <input
+                className={'form-control'}
+                id={'message'}
+                placeholder={'Доп. информация (Linkedln, Skype и т.д.)'}
+                {...formik.getFieldProps('message')}
+              />
+            </div>
+            <div className={s.sendFileField}>
+              <label className={s.customFileUpload} htmlFor={'file'}>
+                <p>
+                  <span>Прикрепить файл</span> (файл в формате .pdf, .docx, .doc, .txt размером до
+                  1Mb)
+                </p>
+                <input
+                  accept={'.pdf,.docx,.doc,.txt'}
+                  id={'file'}
+                  onChange={e => formik.setFieldValue('file', e.currentTarget.files?.[0])}
+                  type={'file'}
+                />
+              </label>
+            </div>
           </div>
-        </div>
-        <div className={s.button}>
-          <Button px={40} py={20}>
-            Отправить запрос
-          </Button>
-        </div>
-      </form>
+          <div className={s.button}>
+            <Button px={40} py={20}>
+              Отправить запрос
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
