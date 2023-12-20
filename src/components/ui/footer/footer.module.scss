@@ -1,4 +1,3 @@
-
 .footer {
   display: flex;
   flex-direction: column;
@@ -45,5 +44,29 @@
   & > a {
     color: var(--color-dark);
     text-transform: uppercase;
+  }
+}
+
+@media screen and (width <= 500px) {
+  .footer{
+    padding: 70px 0;
+  }
+
+  .contacts {
+    font-size: var(--font-size-xxxlarge);
+    font-weight: var(--font-weight-semi-bold);
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    margin: 35px 0;
+  }
+
+  .companyName,
+  .tel,
+  .email {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-semi-bold);
+    letter-spacing: 0.75px;
   }
 }

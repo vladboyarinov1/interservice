@@ -81,7 +81,6 @@ app.post('/send-email', upload.any(), validateData, async (req, res) => {
         res.status(500).send(error.message);
     }
 });
-зтpnpmpnpm run dev
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',
