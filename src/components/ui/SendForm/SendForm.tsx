@@ -1,22 +1,33 @@
+import { ReactNode, useState } from 'react'
 import { Element } from 'react-scroll'
 
 import { Button } from '@/components/ui/button'
+import { SuccessfulSnackbar } from '@/components/ui/successful-snackbar/successful-snackbar'
+import { CircularProgress } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import s from './SendForm.module.scss'
 import container from '@/styles/container.module.scss'
 
-const validationSchema = Yup.object({})
+const validationSchema = Yup.object({
+  email: Yup.string().email('Некорректный адрес электронной почты').required('Обязательное поле'),
+  firstName: Yup.string().required('Обязательное поле'),
+  lastName: Yup.string(),
+  message: Yup.string(),
+  phone: Yup.number().required('Обязательное поле'),
+})
 
 export const SendForm = () => {
+  const [loading, setLoading] = useState<boolean>(false)
+  const [sendStatusMessage, setSendStatusMessage] = useState<null | string>('')
   const formik = useFormik({
     initialValues: {
-      email: '', // Добавлено поле для email
+      email: '',
       file: '',
       firstName: '',
       lastName: '',
-      message: '', // Добавлено поле для сообщения
+      message: '',
       phone: '',
     },
     onSubmit: (values: Record<string, any>) => {
@@ -30,7 +41,7 @@ export const SendForm = () => {
         formData.append('file', formik.values.file)
       }
 
-      console.log(formData) // Проверьте, что formData заполнен
+      console.log(formData)
 
       sendEmail(formData)
       formik.resetForm()
@@ -39,6 +50,7 @@ export const SendForm = () => {
   })
 
   async function sendEmail(values: FormData) {
+    setLoading(true)
     try {
       const res = await fetch(`http://localhost:5003/send-email`, {
         body: values,
@@ -47,16 +59,32 @@ export const SendForm = () => {
 
       if (res.ok) {
         console.log(res)
+        setLoading(false)
+        setSendStatusMessage('Форма успешно отправлена!')
+        formik.setStatus({ sent: true })
       } else {
         console.error(`Error: ${res.status} - ${res.statusText}`)
+        formik.setStatus({ sent: true })
+        setSendStatusMessage('Ошибка! Повторите попытку.')
       }
     } catch (e) {
       console.log(e)
+      formik.setStatus({ sent: true })
+      setSendStatusMessage('Ошибка! Повторите попытку.')
+    } finally {
+      setLoading(false)
     }
   }
 
+  console.log(formik.status?.sent)
+
   return (
     <Element className={s.wrapper} id={'form'} name={'form'}>
+      <SuccessfulSnackbar
+        isOpen={formik.status?.sent}
+        message={sendStatusMessage}
+        setStatus={formik.setStatus}
+      />
       <div className={`${container.container} ${s.formContainer}`}>
         <div className={s.title}>
           <h2>Остались вопросы?</h2>
@@ -74,6 +102,9 @@ export const SendForm = () => {
                 type={'text'}
                 {...formik.getFieldProps('firstName')}
               />
+              {formik.touched.firstName && formik.errors.firstName && (
+                <div className={s.errorText}>{formik.errors.firstName as ReactNode}</div>
+              )}
             </div>
             <div>
               <input
@@ -92,6 +123,9 @@ export const SendForm = () => {
                 type={'email'}
                 {...formik.getFieldProps('email')}
               />
+              {formik.touched.firstName && formik.errors.firstName && (
+                <div className={s.errorText}>{formik.errors.email as ReactNode}</div>
+              )}
             </div>
             <div>
               <input
@@ -101,6 +135,9 @@ export const SendForm = () => {
                 type={'number'}
                 {...formik.getFieldProps('phone')}
               />
+              {formik.touched.firstName && formik.errors.firstName && (
+                <div className={s.errorText}>{formik.errors.phone as ReactNode}</div>
+              )}
             </div>
             <div className={s.messageInput}>
               <input
@@ -130,6 +167,11 @@ export const SendForm = () => {
               Отправить запрос
             </Button>
           </div>
+          {formik.submitCount > 0 && !formik.isValid && (
+            <div className={s.errorText}>Пожалуйста, заполните обязательные поля.</div>
+          )}
+          {loading ? <CircularProgress className={s.progress} /> : ''}
+          {loading && <div className={s.overlay} />}
         </form>
       </div>
     </Element>

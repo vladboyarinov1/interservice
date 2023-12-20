@@ -1,4 +1,6 @@
 form {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,13 +8,21 @@ form {
 
 }
 
-.wrapper{
+.wrapper {
   padding: 0 20px;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  background-color: rgb(10 10 10 / 8%);
+  border-radius: 6px;
 }
 
 .successMessage {
@@ -160,12 +170,12 @@ input {
 
   .title {
     & > h2 {
-      font-size: var(  --font-size-xxlarge);
+      font-size: var(--font-size-xxlarge);
     }
 
     & > p {
       margin: 14px 0 25px;
-      font-size: var( --font-size-regular);
+      font-size: var(--font-size-regular);
     }
 
   }

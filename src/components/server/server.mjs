@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import express from 'express';
 import nodemailer from 'nodemailer';
-import {validationResult} from 'express-validator';
+import {validationResult, check, body} from 'express-validator';
 import multer from 'multer';
 
 dotenv.config();
@@ -24,7 +24,13 @@ app.on('error', (err) => {
     console.log(err);
 });
 
-const validateData = [];
+const validateData = [
+    check('email').isEmail().normalizeEmail(),
+    check('firstName').trim().notEmpty().escape(),
+    check('lastName').optional().trim().escape(), // lastName необязательное поле
+    check('phone').trim().notEmpty().escape(),
+    check('message').optional().trim().escape(), // message необязательное поле
+];
 
 function trimReplace(value) {
     if (typeof value === 'string') {
@@ -42,21 +48,20 @@ app.post('/send-email', upload.any(), validateData, async (req, res) => {
             return res.status(422).json({errors: errors.array()});
         }
 
-        const files = req.files;
-        if (!files || files.length === 0) {
-            return res.status(400).send('No files uploaded.');
-        }
-
+        const files = req.files || [];
         let attachments = [];
-        for (const file of files) {
-            const encodedFilename = encodeURIComponent(file.originalname);
-            const existingFile = attachments.find((attachment) => attachment.filename === encodedFilename);
-            if (!existingFile) {
-                attachments.push({
-                    filename: encodedFilename,
-                    content: file.buffer.toString('base64'),
-                    encoding: 'base64',
-                });
+
+        if (files.length > 0) {
+            for (const file of files) {
+                const encodedFilename = encodeURIComponent(file.originalname);
+                const existingFile = attachments.find((attachment) => attachment.filename === encodedFilename);
+                if (!existingFile) {
+                    attachments.push({
+                        filename: encodedFilename,
+                        content: file.buffer.toString('base64'),
+                        encoding: 'base64',
+                    });
+                }
             }
         }
 
@@ -64,14 +69,14 @@ app.post('/send-email', upload.any(), validateData, async (req, res) => {
         await transporter.sendMail({
             from: process.env.EMAIL,
             to: process.env.EMAIL,
-            subject: `Заявка от ${firstName} ${lastName}`,
+            subject: `Заявка от ${firstName} ${lastName ?? '-'}`, // Добавлено || '' для избежания undefined
             html: `<p><strong>Имя: </strong>${firstName}</p>
-                   <p><strong>Фамилия: </strong>${lastName}</p>
-                   <p><strong>Email: </strong>${email}</p>
-                   <p><strong>Контактный телефон: </strong>${phone}</p>
-                   <p><strong>Сообщение: </strong> ${message}</p>
-                   ${attachments.map((attachment) => `<img src="data:image/${attachment.filename.split('.').pop()};base64,${attachment.content}" alt="${attachment.filename}" />`).join('')}
-              `,
+             <p><strong>Фамилия: </strong>${lastName ?? '-'}</p>
+             <p><strong>Email: </strong>${email}</p>
+             <p><strong>Контактный телефон: </strong>${phone}</p>
+             <p><strong>Сообщение: </strong> ${message ?? '-'}</p>
+             ${attachments.map((attachment) => `<img src="data:image/${attachment.filename.split('.').pop()};base64,${attachment.content}" alt="${attachment.filename}" />`).join('')}
+          `,
             attachments: attachments,
         });
 
