@@ -11,11 +11,6 @@ import s from './header.module.scss'
 import container from '@/styles/container.module.scss'
 
 import { Intro } from './intro'
-const linked = [
-  { id: 1, title: 'О компании', to: 'company' },
-  { id: 2, title: 'Оборудование', to: 'equipment' },
-  { id: 3, title: 'Контакты', to: 'contacts' },
-]
 
 export const Header = () => {
   const { width } = useWindowSize()
