@@ -21,7 +21,6 @@
 }
 
 
-
 .nav {
   display: flex;
   flex-direction: column;
@@ -40,6 +39,12 @@
       margin-bottom: 0;
     }
   }
+
+}
+
+.navigateActive {
+  font-weight: 500;
+  color: rgb(62 171 250 / 81%);
 }
 
 .close {

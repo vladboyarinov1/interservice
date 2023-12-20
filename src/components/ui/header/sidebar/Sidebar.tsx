@@ -1,3 +1,5 @@
+import { Link } from 'react-scroll'
+
 import { Close } from '@/img/icons'
 
 import s from './Sidebar.module.scss'
@@ -23,9 +25,39 @@ export const Sidebar = ({ handleClose, open }: PropsType) => {
         </button>
 
         <nav className={s.nav}>
-          <a onClick={handleClose}>О компании</a>
-          <a onClick={handleClose}>Оборудование</a>
-          <a onClick={handleClose}>Контакты</a>
+          <Link
+            activeClass={s.navigateActive}
+            duration={500}
+            offset={-70}
+            onClick={handleClose}
+            smooth
+            spy
+            to={'company'}
+          >
+            О компании
+          </Link>{' '}
+          <Link
+            activeClass={s.navigateActive}
+            duration={500}
+            offset={-70}
+            onClick={handleClose}
+            smooth
+            spy
+            to={'equipment'}
+          >
+            Оборудование
+          </Link>
+          <Link
+            activeClass={s.navigateActive}
+            duration={500}
+            offset={-70}
+            onClick={handleClose}
+            smooth
+            spy
+            to={'contacts'}
+          >
+            Контакты
+          </Link>
         </nav>
       </aside>
     </>

@@ -13,6 +13,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@fontsource-variable/montserrat": "^5.0.16",
+    "@types/react-scroll": "^1.8.10",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

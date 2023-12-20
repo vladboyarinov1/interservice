@@ -1,3 +1,5 @@
+import { Element } from 'react-scroll'
+
 import ACO from '@/img/ACO.jpg'
 import cryogenic from '@/img/Cryogenic.jpg'
 import pump from '@/img/Pump_Render.jpg'
@@ -46,7 +48,7 @@ export const Equipment = () => {
   ]
 
   return (
-    <div className={s.wrapper}>
+    <Element className={s.wrapper} id={'equipment'} name={'equipment'}>
       {' '}
       <div className={`${container.container} ${s.equipmentContainer}`}>
         <div className={s.equipmentTitle}>
@@ -67,6 +69,6 @@ export const Equipment = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Element>
   )
 }

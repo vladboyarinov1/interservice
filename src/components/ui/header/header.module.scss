@@ -11,6 +11,9 @@
   padding: 14px 58px 18px;
 }
 
+.navigateActive {
+  font-weight: 500;
+}
 
 .fixed {
   position: fixed;
@@ -100,6 +103,7 @@
   justify-content: space-between;
 
   width: 100%;
+
 }
 
 .menuItem {
@@ -136,10 +140,21 @@
     transition: width .5s ease 0s, right .5s ease 0s;
   }
 
+  &.active {
+    color: #96bb7c;
+    text-decoration: underline;
+  }
+
+  & > a.active {
+    color: #96bb7c;
+    text-decoration: underline;
+  }
+
   &:last-child::after {
     content: "";
     display: none;
   }
+
 
   &:hover::after {
     left: 0;
