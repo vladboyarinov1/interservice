@@ -22,7 +22,7 @@ export const Intro = () => {
         </p>
       </div>
       <Link duration={500} offset={-150} smooth spy to={'company'}>
-        <Button as={'a'} px={mobileSize ? 28 : 60} py={mobileSize ? 18 : 25}>
+        <Button px={mobileSize ? 28 : 60} py={mobileSize ? 18 : 25}>
           Узнать подробнее
         </Button>
       </Link>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Element, Link } from 'react-scroll'
+import { Link } from 'react-scroll'
 
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/ui/header/sidebar/Sidebar'
@@ -31,86 +31,96 @@ export const Header = () => {
   return (
     <div className={s.backgroundPhoto} style={{ backgroundImage: `url(${bg})` }}>
       <header className={`${fixedHeader ? s.fixed : s.header} ${container.container}`}>
-        <div className={s.logo}>
-          <div>
-            <a href={''}>
-              <Logo height={mobileSize ? 35 : 50} width={mobileSize ? 35 : 50} />
-            </a>
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'space-between',
+            margin: '0 auto',
+            width: '1316px',
+          }}
+        >
+          <div className={s.logo}>
+            <div>
+              <a href={''}>
+                <Logo height={mobileSize ? 35 : 50} width={mobileSize ? 35 : 50} />
+              </a>
+            </div>
+            <div className={s.logoText}>
+              <p>ИНТЕР</p>
+              <p>СЕРВИС</p>
+            </div>
           </div>
-          <div className={s.logoText}>
-            <p>ИНТЕР</p>
-            <p>СЕРВИС</p>
-          </div>
+          {widthForBurger ? (
+            <div className={!open ? s.showBurgerIcon : s.hideBurgerIcon}>
+              <div>
+                <a className={s.phoneMobile} href={'tel:+ 7 (977) 546-75-28'}>
+                  +7 (977) 546-75-28
+                </a>
+              </div>
+              <div>
+                <label className={s.navbarBurger} htmlFor={'navbar__checkbox'} onClick={handleOpen}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </label>
+              </div>
+            </div>
+          ) : (
+            <nav className={s.menuItems}>
+              <li className={s.menuItem}>
+                <Link
+                  activeClass={s.navigateActive}
+                  duration={500}
+                  offset={-70}
+                  smooth
+                  spy
+                  to={'company'}
+                >
+                  О компании
+                </Link>
+              </li>
+              <li className={s.menuItem}>
+                {' '}
+                <Link
+                  activeClass={s.navigateActive}
+                  duration={500}
+                  offset={-70}
+                  smooth
+                  spy
+                  to={'equipment'}
+                >
+                  Оборудование
+                </Link>
+              </li>
+              <li className={s.menuItem}>
+                <Link
+                  activeClass={s.navigateActive}
+                  duration={500}
+                  offset={-360}
+                  smooth
+                  spy
+                  to={'contacts'}
+                >
+                  Контакты
+                </Link>
+              </li>
+              <li className={s.menuItem}>
+                <a className={s.phone} href={'tel:+ 7 (977) 546-75-28'}>
+                  +7 (977) 546-75-28
+                </a>
+              </li>
+              <li className={s.menuItem}>
+                <Link duration={500} offset={-100} smooth spy to={'form'}>
+                  <Button as={'a'} fs={12} px={15} py={10}>
+                    отправить запрос
+                  </Button>
+                </Link>
+              </li>
+            </nav>
+          )}
+          <Sidebar handleClose={handleClose} isDark={false} open={open} width />
         </div>
-        {widthForBurger ? (
-          <div className={!open ? s.showBurgerIcon : s.hideBurgerIcon}>
-            <div>
-              <a className={s.phoneMobile} href={'tel:+ 7 (977) 546-75-28'}>
-                +7 (977) 546-75-28
-              </a>
-            </div>
-            <div>
-              <label className={s.navbarBurger} htmlFor={'navbar__checkbox'} onClick={handleOpen}>
-                <span></span>
-                <span></span>
-                <span></span>
-              </label>
-            </div>
-          </div>
-        ) : (
-          <nav className={s.menuItems}>
-            <li className={s.menuItem}>
-              <Link
-                activeClass={s.navigateActive}
-                duration={500}
-                offset={-70}
-                smooth
-                spy
-                to={'company'}
-              >
-                О компании
-              </Link>
-            </li>
-            <li className={s.menuItem}>
-              {' '}
-              <Link
-                activeClass={s.navigateActive}
-                duration={500}
-                offset={-70}
-                smooth
-                spy
-                to={'equipment'}
-              >
-                Оборудование
-              </Link>
-            </li>
-            <li className={s.menuItem}>
-              <Link
-                activeClass={s.navigateActive}
-                duration={500}
-                offset={-350}
-                smooth
-                spy
-                to={'contacts'}
-              >
-                Контакты
-              </Link>
-            </li>
-            <li className={s.menuItem}>
-              <a className={s.phone} href={'tel:+ 7 (977) 546-75-28'}>
-                +7 (977) 546-75-28
-              </a>
-            </li>
-            <li className={s.menuItem}>
-              <Link duration={500} offset={-100} smooth spy to={'form'}>
-                <Button as={'a'} fs={12} px={15} py={10}>
-                  отправить запрос
-                </Button>
-              </Link>
-            </li>
-          </nav>
-        )}
-        <Sidebar handleClose={handleClose} isDark={false} open={open} width />
       </header>
       <Intro />
     </div>

@@ -8,7 +8,7 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 14px 58px 18px;
+  padding: 14px 58px;
 }
 
 .navigateActive {
@@ -17,24 +17,27 @@
 
 .fixed {
   position: fixed;
-  z-index: 10;
+  z-index:10 ;
   top: 0;
 
-  //min-width: 300px;
+  //
+  ////min-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-sizing: border-box;
+  //
+  //box-sizing: border-box;
   min-width: 100%;
-  height: 62px;
-  margin: 0 auto;
-  padding: 14px 120px 18px;
+
+  //height: 62px;
+  //margin: 0 auto;
+  padding: 5px 120px;
 
   background-color: #fff;
   box-shadow: 0 5px 4px rgb(0 0 0 / 20%);
 
-  transition: height 3s ease-out, padding 0.5s ease-out;
+  transition: height 3s ease-out, padding 0.3s ease-out;
 }
 
 
@@ -70,7 +73,7 @@
 }
 
 .hideBurgerIcon {
-  display: none;
+  opacity: 0;
 }
 
 .mobileNavigation {
@@ -140,16 +143,6 @@
     transition: width .5s ease 0s, right .5s ease 0s;
   }
 
-  &.active {
-    color: #96bb7c;
-    text-decoration: underline;
-  }
-
-  & > a.active {
-    color: #96bb7c;
-    text-decoration: underline;
-  }
-
   &:last-child::after {
     content: "";
     display: none;
@@ -183,6 +176,10 @@
   .logo {
     margin-right: 50px;
   }
+
+  .fixed{
+    padding: 5px 30px;
+  }
 }
 
 @media screen and (width <= 1024px) {
@@ -207,7 +204,7 @@
   }
 
   .fixed {
-    padding: 0;
+    padding: 10px;
   }
 
   .backgroundPhoto {
