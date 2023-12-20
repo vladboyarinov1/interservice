@@ -30,7 +30,7 @@ export const AdvantagesCard = () => {
           <Check height={46} />
         </div>
         <div>
-          <p className={s.advantagesText}>Индивидуальный расчет цен</p>
+          <p className={s.advantagesText}>Оригинальное оборудование</p>
         </div>
       </div>
     </div>

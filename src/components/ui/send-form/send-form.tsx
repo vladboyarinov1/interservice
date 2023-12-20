@@ -7,7 +7,7 @@ import { CircularProgress } from '@mui/material'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import s from './SendForm.module.scss'
+import s from './send-form.module.scss'
 import container from '@/styles/container.module.scss'
 
 const validationSchema = Yup.object({
@@ -41,8 +41,6 @@ export const SendForm = () => {
         formData.append('file', formik.values.file)
       }
 
-      console.log(formData)
-
       sendEmail(formData)
       formik.resetForm()
     },
@@ -58,25 +56,20 @@ export const SendForm = () => {
       })
 
       if (res.ok) {
-        console.log(res)
         setLoading(false)
         setSendStatusMessage('Форма успешно отправлена!')
         formik.setStatus({ sent: true })
       } else {
-        console.error(`Error: ${res.status} - ${res.statusText}`)
         formik.setStatus({ sent: true })
         setSendStatusMessage('Ошибка! Повторите попытку.')
       }
     } catch (e) {
-      console.log(e)
       formik.setStatus({ sent: true })
       setSendStatusMessage('Ошибка! Повторите попытку.')
     } finally {
       setLoading(false)
     }
   }
-
-  console.log(formik.status?.sent)
 
   return (
     <Element className={s.wrapper} id={'form'} name={'form'}>
@@ -93,6 +86,9 @@ export const SendForm = () => {
           </p>
         </div>
         <form encType={'multipart/form-data'} onSubmit={formik.handleSubmit}>
+          {formik.submitCount > 0 && !formik.isValid && (
+            <div className={s.errorText}>Пожалуйста, заполните обязательные поля.</div>
+          )}
           <div className={s.nameFormBlock}>
             <div className={s.firstName}>
               <input
@@ -132,7 +128,7 @@ export const SendForm = () => {
                 className={'form-control'}
                 id={'phone'}
                 placeholder={'Номер телефона*'}
-                type={'number'}
+                type={'tel'}
                 {...formik.getFieldProps('phone')}
               />
               {formik.touched.firstName && formik.errors.firstName && (
@@ -143,7 +139,7 @@ export const SendForm = () => {
               <input
                 className={'form-control'}
                 id={'message'}
-                placeholder={'Доп. информация (Linkedln, Skype и т.д.)'}
+                placeholder={'Дополнительная информация'}
                 {...formik.getFieldProps('message')}
               />
             </div>
@@ -154,7 +150,7 @@ export const SendForm = () => {
                   1Mb)
                 </p>
                 <input
-                  accept={'.pdf,.docx,.doc,.txt'}
+                  accept={'.pdf,.docx,.doc,.txt,.jpg'}
                   id={'file'}
                   onChange={e => formik.setFieldValue('file', e.currentTarget.files?.[0])}
                   type={'file'}
@@ -167,9 +163,6 @@ export const SendForm = () => {
               Отправить запрос
             </Button>
           </div>
-          {formik.submitCount > 0 && !formik.isValid && (
-            <div className={s.errorText}>Пожалуйста, заполните обязательные поля.</div>
-          )}
           {loading ? <CircularProgress className={s.progress} /> : ''}
           {loading && <div className={s.overlay} />}
         </form>

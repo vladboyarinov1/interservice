@@ -1,15 +1,13 @@
-import { SendForm } from '@/components/ui/SendForm/SendForm'
 import { Advantages } from '@/components/ui/advantages'
 import { Equipment } from '@/components/ui/equipment'
 import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header'
 import { Main } from '@/components/ui/main'
+import { SendForm } from '@/components/ui/send-form'
 
 import s from './App.module.scss'
 
 function App() {
-  // const { width } = useWindowSize()
-
   return (
     <>
       <Header />
