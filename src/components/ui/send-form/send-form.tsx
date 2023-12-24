@@ -50,7 +50,7 @@ export const SendForm = () => {
   async function sendEmail(values: FormData) {
     setLoading(true)
     try {
-      const res = await fetch(`http://localhost:5003/send-email`, {
+      const res = await fetch(`https://inter-services.ru:80/api/send-email`, {
         body: values,
         method: 'POST',
       })
