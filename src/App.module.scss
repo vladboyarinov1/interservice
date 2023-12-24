@@ -18,22 +18,26 @@
   background-size: cover;
   min-width: 375px;
 
-  @media screen and (width <= 980px) {
+  @media screen and (max-width: 980px) {
     font-size: var(--font-size-huge);
   }
 
-  @media screen and (width <= 720px) {
+  @media screen and (max-width: 720px) {
     font-size: var(--font-size-xxxlarge);
   }
 
-  @media screen and (width <= 500px) {
+  @media screen and (max-width: 500px) {
     height: 200px;
     font-size: var(--font-size-large);
+  }
+  @media screen and (max-width: 910px) {
+    height: 300px;
   }
 }
 
 .imageMers {
   min-width: 375px;
+  width: 100%;
   position: relative;
 
   overflow: hidden;
@@ -44,10 +48,14 @@
   background-image: url("@/img/mercedes-truck.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 
-  @media screen and (width <= 500px) {
+  @media screen and (max-width: 500px) {
     height: 200px;
     margin: 35px 0;
-    width: 100%;
+  }
+  @media screen and (max-width: 910px) {
+    height: 300px;
+    margin: 35px 0;
   }
 }
