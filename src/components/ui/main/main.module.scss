@@ -137,6 +137,9 @@
 }
 
 @media screen and (max-width:500px) {
+  .main {
+    padding: 0;
+  }
   .companyInfo {
     display: block;
     margin-bottom: 50px;
@@ -148,8 +151,6 @@
       text-align: center;
     }
 
-    & > p {
-    }
 
   }
 

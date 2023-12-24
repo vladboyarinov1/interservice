@@ -1,5 +1,4 @@
 import { Advantages } from '@/components/ui/advantages'
-import { Equipment } from '@/components/ui/equipment'
 import { Footer } from '@/components/ui/footer'
 import { Header } from '@/components/ui/header'
 import { Main } from '@/components/ui/main'
@@ -16,7 +15,7 @@ function App() {
         <div>“Надежный партнер в вашем производственном успехе”</div>
       </div>
       <Advantages />
-      <Equipment />
+      {/*<Equipment />*/}
       <div className={s.imageMers}></div>
       <SendForm />
       <Footer />

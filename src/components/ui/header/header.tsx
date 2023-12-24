@@ -30,7 +30,7 @@ export const Header = () => {
 
   return (
     <div className={s.backgroundPhoto} style={{ backgroundImage: `url(${bg})` }}>
-      <header className={`${fixedHeader ? s.fixed : s.header} ${container.container}`}>
+      <header className={`${container.container} ${fixedHeader ? s.fixed : s.header}`}>
         <div
           style={{
             alignItems: 'center',
