@@ -22,8 +22,8 @@
   box-shadow: 3px 3.5px 9px 0 rgb(116 116 116 / 25%);
   @media screen and (max-width: 910px) {
     &:last-child {
-      display: none;
-      margin: 0;
+      position: absolute;
+      left: -9999px;
     }
   }
 }

@@ -21,6 +21,9 @@
   @media screen and (max-width: 980px) {
     font-size: var(--font-size-huge);
   }
+  @media screen and (max-width: 910px) {
+    height: 300px;
+  }
 
   @media screen and (max-width: 720px) {
     font-size: var(--font-size-xxxlarge);
@@ -29,9 +32,6 @@
   @media screen and (max-width: 500px) {
     height: 200px;
     font-size: var(--font-size-large);
-  }
-  @media screen and (max-width: 910px) {
-    height: 300px;
   }
 }
 
@@ -42,6 +42,7 @@
 
   overflow: hidden;
   display: inline-block;
+  //height: 450px;
   height: 450px;
   margin: 100px 0;
 
@@ -50,12 +51,12 @@
   background-size: cover;
   background-position: center;
 
-  @media screen and (max-width: 500px) {
-    height: 200px;
-    margin: 35px 0;
-  }
   @media screen and (max-width: 910px) {
     height: 300px;
+    margin: 35px 0;
+  }
+  @media screen and (max-width: 500px) {
+    height: 190px;
     margin: 35px 0;
   }
 }

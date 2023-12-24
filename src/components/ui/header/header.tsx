@@ -112,7 +112,7 @@ export const Header = () => {
               </li>
               <li className={s.menuItem}>
                 <Link duration={500} offset={-100} smooth spy to={'form'}>
-                  <Button as={'a'} fs={12} px={15} py={10}>
+                  <Button fs={12} px={15} py={10}>
                     отправить запрос
                   </Button>
                 </Link>

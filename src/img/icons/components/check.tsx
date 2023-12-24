@@ -9,7 +9,7 @@ export const Check = (allProps: IconProps) => {
         <svg
           fill={'none'}
           height={height}
-          viewBox={'0 0 46 47'}
+          viewBox={'0 0 47 47'}
           width={width}
           xmlns={'http://www.w3.org/2000/svg'}
           {...props}

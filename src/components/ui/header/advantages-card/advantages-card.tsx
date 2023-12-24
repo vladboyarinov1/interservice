@@ -27,7 +27,7 @@ export const AdvantagesCard = () => {
       </div>
       <div className={s.advantagesCard}>
         <div className={s.advantagesImg}>
-          <Check height={46} />
+          <Check height={40} />
         </div>
         <div>
           <p className={s.advantagesText}>Оригинальное оборудование</p>
