@@ -1,5 +1,5 @@
 import { useWindowSize } from '@/hooks/use-window-size'
-import { Award, Cards, Check, Discount, Geolocation, Time } from '@/img/icons'
+import { Award, Cards, CheckMobile, Discount, Geolocation, Time } from '@/img/icons'
 
 import s from './advantages.module.scss'
 import container from '@/styles/container.module.scss'
@@ -37,7 +37,7 @@ export const Advantages = () => {
     },
     {
       id: 5,
-      image: <Check height={mobileSize ? 30 : 70} />,
+      image: <CheckMobile height={mobileSize ? 30 : 70} />,
       subtitle: `Мы стремимся понять потребности каждого клиента и предложить наиболее подходящее оборудование, предоставляя консультации по оптимизации процессов.`,
       title: 'Индивидуальный подход:',
     },

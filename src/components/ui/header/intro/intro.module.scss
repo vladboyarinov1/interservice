@@ -45,7 +45,7 @@
   }
 }
 
-@media screen and (width <= 680px) {
+@media screen and (max-width: 680px) {
   .intro {
     display: flex;
     flex-direction: column;

@@ -154,7 +154,7 @@ input {
   transform: translateX(-50%);
 }
 
-@media screen and (width <= 500px) {
+@media screen and (max-width:500px) {
   .wrapper {
     padding: 0 10px;
   }

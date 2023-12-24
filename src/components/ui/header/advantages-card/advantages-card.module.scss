@@ -5,7 +5,6 @@
 
   margin-top: 60px;
   padding-bottom: 20px;
-
 }
 
 .advantagesCard {
@@ -21,11 +20,10 @@
   background-color: var(--color-light);
   border-radius: 17.5px;
   box-shadow: 3px 3.5px 9px 0 rgb(116 116 116 / 25%);
-
-  @media screen and (width <= 910px) {
+  @media screen and (max-width: 910px) {
     &:last-child {
-      //display: none;
-      //margin: 0;
+      display: none;
+      margin: 0;
     }
   }
 }
@@ -36,7 +34,7 @@
   font-weight: var(--font-weight-medium);
 }
 
-@media screen and (width <= 680px) {
+@media screen and (max-width: 680px) {
   .advantages {
     display: flex !important;
     flex-direction: row !important;
@@ -68,4 +66,5 @@
     line-height: 140%;
   }
 }
+
 

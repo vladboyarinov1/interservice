@@ -20,6 +20,7 @@
   gap: 100px 30px;
   place-items: center center;
   align-items: stretch;
+
 }
 
 .card {
@@ -74,7 +75,7 @@
   box-shadow: 0 0 7px -2px #000;
 }
 
-@media screen and (width <= 500px){
+@media screen and (max-width:500px) {
   .advantages {
     padding: 50px 10px;
   }

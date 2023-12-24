@@ -89,7 +89,7 @@
   }
 }
 
-@media screen and (width <= 500px) {
+@media screen and (max-width:500px) {
   .equipmentContainer {
     display: flex;
     flex-direction: column;
